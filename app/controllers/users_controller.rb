@@ -9,7 +9,7 @@ class UsersController < ApplicationController
                      password: params[:password],
                      password_confirmation: params[:password_confirmation])
     if @user.save
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       flash[:success] = 'Created User'
       redirect_to "/users/#{@user.id}"
     else
@@ -19,6 +19,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(param[:id])
+    @user = User.find(params[:id])
   end
 end
