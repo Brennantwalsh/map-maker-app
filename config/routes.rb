@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   get '/maps/:id/edit' => 'maps#edit'
   patch '/maps/:id' => 'maps#update'
   delete '/maps/:id' => 'maps#destroy'
+
+  get '/tiles' => 'tiles#index'
+  get '/tiles/:id' => 'tiles#show'
 end
