@@ -1,9 +1,15 @@
 <h1>Hero Info:</h1>
 <br>
-<h2><%= @user.username %></h2>
+<h2><%= @user.username.titleize %></h2>
 <h2><%= @user.email %></h2>
-<%= @user.journeys.each do |journey| %>
-  <h2><%= link_to journey.name, "/journey/#{journey.id}", method: :get %></h2>
-<% end %>
 <br>
-<h3><%= link_to 'New Map', '/maps/new', method: :get %></h3>
+<h1>Your Journey's</h1>
+<ul>
+<% @user.journeys.each do |journey| %>
+  <li><%= link_to journey.name, "/journeys/#{journey.id}", method: :get %></li>
+<% end %>
+</ul>
+  
+  
+<br>
+<h3><%= link_to 'New Journey', '/journeys/new', method: :get %></h3>

@@ -19,7 +19,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Master's Maps</a>
+        <% if  current_user%>
+          <a class="navbar-brand" href= "/users/<%= current_user.id %>"> Master's Maps</a>  
+        <% else %>
+          <a class="navbar-brand" href="/login">Master's Maps</a>  
+        <% end %>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
