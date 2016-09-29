@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
+  get '/journeys' => 'journeys#index'
+  get '/journeys/new' => 'journeys#new'
+  post '/journeys' => 'journeys#create'
+  get '/journeys/:id' => 'journeys#show'
+
   get '/maps/new' => 'maps#new'
   post '/maps' => 'maps#create'
   get '/maps/:id' => 'maps#show'

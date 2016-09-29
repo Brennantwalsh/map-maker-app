@@ -1,4 +1,5 @@
 class TilesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @tiles = Tile.all
   end
