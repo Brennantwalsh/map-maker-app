@@ -1,2 +1,4 @@
 <h1><%= @map.name %></h1>
 <h3><%=@map.description %></h3>
+<br>
+<h4>Journey: <%= link_to @map.journey.name, "/journeys/#{@map.journey_id}", method: :get  %></h4>
