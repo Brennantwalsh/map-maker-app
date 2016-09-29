@@ -12,6 +12,7 @@ class MapsController < ApplicationController
       creator_id: current_user.id,
       journey_id: params[:journey_id]
     )
+    redirect_to "/maps/#{@map.id}"
   end
 
   def show
