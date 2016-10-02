@@ -12,11 +12,26 @@ class MapsController < ApplicationController
       creator_id: current_user.id,
       journey_id: params[:journey_id]
     )
+
+     @map.row_number.times do 
+       current_row = 1 
+       current_column = 1 
+       @map.column_number.times do 
+            Placement.create(map_id: @map.id,
+                             tile_id: 1,
+                             column: current_column,
+                             row: current_row)
+          
+       end 
+       current_column = 1 
+       current_row += 1 
+     end
     redirect_to "/maps/#{@map.id}"
   end
 
   def show
     @map = Map.find(params[:id])
+    @images = @map.placements.order(:id)
   end
 
   def edit

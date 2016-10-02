@@ -21,4 +21,7 @@ Rails.application.routes.draw do
 
   get '/tiles' => 'tiles#index'
   get '/tiles/:id' => 'tiles#show'
+
+  get '/placements/:id/edit' => 'placements#edit'
+  patch '/placements/:id' => 'placements#update'
 end

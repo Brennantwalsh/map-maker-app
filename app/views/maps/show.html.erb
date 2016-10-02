@@ -1,4 +1,9 @@
 <h1><%= @map.name %></h1>
 <h3><%=@map.description %></h3>
 <br>
+<% @images.each do |placement| %>
+  <%= link_to  (image_tag "#{placement.tile.path}.png"), "/placements/#{placement.id}/edit"%>
+<% end %>
 <h4>Journey: <%= link_to @map.journey.name, "/journeys/#{@map.journey_id}", method: :get  %></h4>
+<h4><%= link_to "Tiles Index", "/tiles", method: :get  %></h4>
+
