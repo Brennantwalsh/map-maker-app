@@ -1,9 +1,9 @@
-<h1><%= @map.name %></h1>
-<h3><%=@map.description %></h3>
+<h1 class="Header"><%= @map.name %></h1>
+<h3 class= "description"><%=@map.description %></h3>
 <h4>Journey: <%= link_to @map.journey.name, "/journeys/#{@map.journey_id}", method: :get, class: "btn btn-info"   %></h4>
 <br>
 
-<table style="width:100%">
+<table style="width:0%">
   <tr>
     <% row = 1 %>
     <% @images.each do |placement| %>

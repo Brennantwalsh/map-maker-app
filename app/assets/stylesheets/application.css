@@ -19,7 +19,14 @@ body{
   font-family: Papyrus,fantasy;
 }
 
+
 img.tiles{
   height: 200px;
   width: 200px;
+}
+h1.Header {
+  text-align: center;
+}
+h3.description{
+  text-align: center;
 }

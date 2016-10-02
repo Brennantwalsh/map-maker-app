@@ -17,12 +17,13 @@ class MapsController < ApplicationController
        current_row = 1 
        current_column = 1 
        @map.column_number.times do 
-            Placement.create(map_id: @map.id,
-                             tile_id: 1,
-                             column: current_column,
-                             row: current_row)
+         Placement.create(map_id: @map.id,
+                          tile_id: 1,
+                          column: current_column,
+                          row: current_row)
           
-        current_row += 1 
+         current_column += 1
+         current_row += 1 
        end 
        current_column = 1 
      end
