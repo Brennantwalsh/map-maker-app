@@ -22,16 +22,16 @@ class MapsController < ApplicationController
                              column: current_column,
                              row: current_row)
           
+        current_row += 1 
        end 
        current_column = 1 
-       current_row += 1 
      end
     redirect_to "/maps/#{@map.id}"
   end
 
   def show
     @map = Map.find(params[:id])
-    @images = @map.placements.order(:id)
+    @images = @map.placements.order(:row, :id)
   end
 
   def edit

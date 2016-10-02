@@ -6,10 +6,9 @@
 <h1>Your Journey's</h1>
 <ul>
 <% @user.journeys.each do |journey| %>
-  <li><%= link_to journey.name, "/journeys/#{journey.id}", method: :get %></li>
+  <li><%= link_to journey.name, "/journeys/#{journey.id}", method: :get, class: "btn btn-info" %></li>
 <% end %>
 </ul>
   
-  
 <br>
-<h3><%= link_to 'New Journey', '/journeys/new', method: :get %></h3>
+<h3><%= link_to 'New Journey', '/journeys/new', method: :get, class: "btn btn-success" %></h3>

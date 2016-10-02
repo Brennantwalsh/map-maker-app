@@ -1,5 +1,5 @@
 <h1>Journey's</h1>
 
 <% @journeys.each do |journey| %>
-  <h3><%= journey.name %></h3>
+  <h3><%= link_to journey.name, "/journeys/#{journey.id}" %></h3>
 <% end %>

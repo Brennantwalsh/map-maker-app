@@ -18,3 +18,8 @@ body{
   background-image: url('old_map.png');
   font-family: Papyrus,fantasy;
 }
+
+img.tiles{
+  height: 200px;
+  width: 200px;
+}

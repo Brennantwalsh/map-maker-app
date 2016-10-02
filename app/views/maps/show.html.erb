@@ -1,9 +1,26 @@
 <h1><%= @map.name %></h1>
 <h3><%=@map.description %></h3>
+<h4>Journey: <%= link_to @map.journey.name, "/journeys/#{@map.journey_id}", method: :get, class: "btn btn-info"   %></h4>
 <br>
-<% @images.each do |placement| %>
-  <%= link_to  (image_tag "#{placement.tile.path}.png"), "/placements/#{placement.id}/edit"%>
-<% end %>
-<h4>Journey: <%= link_to @map.journey.name, "/journeys/#{@map.journey_id}", method: :get  %></h4>
-<h4><%= link_to "Tiles Index", "/tiles", method: :get  %></h4>
+
+<table style="width:100%">
+  <tr>
+    <% row = 1 %>
+    <% @images.each do |placement| %>
+      <% if placement.row == row %>    
+       <th> <%= link_to  (image_tag "#{placement.tile.path}.png", {class: "tiles"}), "/placements/#{placement.id}/edit"%></th>
+      <% else %>
+        </tr>
+        <tr>
+          <th><%= link_to  (image_tag "#{placement.tile.path}.png", {class: "tiles"}), "/placements/#{placement.id}/edit"%></th>
+        <% row += 1 %>
+      <% end %>
+    <% end %>
+   </tr> 
+</table>
+<br>
+
+
+<br>
+<%= link_to "Delete Map", "/maps/#{@map.id}", method: :delete, class: "btn btn-danger" %>
 
