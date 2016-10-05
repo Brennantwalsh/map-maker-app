@@ -1,7 +1,7 @@
 class TilesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @tiles = Tile.all
+    @tiles = Tile.all.order("path")
   end
 
   def show
