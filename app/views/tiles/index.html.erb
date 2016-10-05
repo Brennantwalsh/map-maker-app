@@ -1,3 +1,16 @@
-<% @tiles.each do |tile| %>
-<%=link_to (image_tag "#{tile.path}.png"), "/tiles/#{tile.id}" %>
-<% end %>
+<table style="width:0%">
+  <tr>
+  <% counter = 0 %>
+    <% @tiles.each do |tile| %>
+      <% if counter < 4 %>
+        <th><%=link_to (image_tag "#{tile.path}.png", {class: "tiles"}), "/tiles/#{tile.id}" %></th>
+        <% counter += 1 %>
+      <% else %>
+      </tr>
+      <tr>
+        <th><%=link_to (image_tag "#{tile.path}.png", {class: "tiles"}), "/tiles/#{tile.id}" %></th>
+        <% counter -= 3 %>
+      <% end %>
+    <% end %>
+  </tr>
+</table>
