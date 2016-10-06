@@ -19,9 +19,12 @@ Rails.application.routes.draw do
   patch '/maps/:id' => 'maps#update'
   delete '/maps/:id' => 'maps#destroy'
 
+  get '/' => 'tiles#index'
   get '/tiles' => 'tiles#index'
   get '/tiles/:id' => 'tiles#show'
 
   get '/placements/:id/edit' => 'placements#edit'
   patch '/placements/:id' => 'placements#update'
+
+  post '/participations/create' => 'participations#create'
 end

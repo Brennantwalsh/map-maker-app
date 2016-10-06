@@ -1,5 +1,11 @@
 <h1 class="Header">Journey: <%= @journey.name %></h1>
 <h3 class="description">Description:<%= @journey.description %></h3>
+<h3>Players:</h3>
+<ul>
+  <% @journey.participated_users.each do |player| %>
+    <li><%= player.username %></li>
+  <% end %>
+</ul>
 <h3>Maps:</h3>
 <ul>
   <% @journey.maps.each do |map| %>
@@ -8,3 +14,11 @@
 </ul>
 <br>
 <h3><%= link_to 'New Map', '/maps/new', method: :get, class: "btn btn-success"  %></h3>
+<h3>Add People to the Journey:</h3>
+
+<%= form_tag "/participations/create", method: :post do %>
+  <h4><%= label_tag :username %></h4>
+  <h4><%= text_field_tag :username %></h4>
+  <%= hidden_field_tag :journey_id, @journey.id %>
+  <%= submit_tag "Join the Crew" %>
+<% end %>
