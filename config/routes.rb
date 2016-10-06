@@ -27,4 +27,6 @@ Rails.application.routes.draw do
   patch '/placements/:id' => 'placements#update'
 
   post '/participations/create' => 'participations#create'
+
+  post '/visibilities/create' => 'visibilities#create'
 end

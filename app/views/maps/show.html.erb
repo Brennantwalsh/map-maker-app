@@ -7,20 +7,12 @@
   <tr>
     <% row = 1 %>
     <% @images.each do |placement| %>
-      <% if placement.row == row %>
-        <% if @map.user.id == current_user.id %>    
-         <th> <%= link_to  (image_tag "#{placement.tile.path}.png", {class: "tiles"}), "/placements/#{placement.id}/edit"%></th>
-        <% else %>
-         <th><%= image_tag "#{placement.tile.path}.png", {class: "tiles"} %></th>
-         <% end %>
+    <% if placement.row == row %>
+      <%= render partial: "tiles", locals: {placement: placement} %>
       <% else %>
         </tr>
         <tr>
-        <% if @map.user.id == current_user.id %>
-          <th><%= link_to  (image_tag "#{placement.tile.path}.png", {class: "tiles"}), "/placements/#{placement.id}/edit"%></th>
-        <% else %>
-          <th><%= image_tag "#{placement.tile.path}.png", {class: "tiles"} %></th>
-        <% end %>
+      <%= render partial: "tiles", locals: {placement: placement} %>
         <% row += 1 %>
       <% end %>
     <% end %>
