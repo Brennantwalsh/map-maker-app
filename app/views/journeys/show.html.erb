@@ -1,5 +1,6 @@
 <h1 class="Header">Journey: <%= @journey.name %></h1>
 <h3 class="description">Description:<%= @journey.description %></h3>
+<h3>Creator: <%= @journey.user.username %></h3>
 <h3>Players:</h3>
 <ul>
   <% @journey.participated_users.each do |player| %>
