@@ -1,0 +1,16 @@
+
+<table style="width:0%">
+  <tr>
+    <% row = 1 %>
+    <% @placements.each do |placement| %>
+    <% if placement.row == row %>
+      <%= render partial: "tiles", locals: {placement: placement} %>
+      <% else %>
+        </tr>
+        <tr>
+      <%= render partial: "tiles", locals: {placement: placement} %>
+        <% row += 1 %>
+      <% end %>
+    <% end %>
+   </tr> 
+</table>
