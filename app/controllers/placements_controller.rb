@@ -10,6 +10,7 @@ class PlacementsController < ApplicationController
   end
 
   def edit
+    @images = Tile.all
     @placement = Placement.find(params[:id])
   end
 
@@ -20,6 +21,6 @@ class PlacementsController < ApplicationController
                       row: params[:row],
                       column: params[:column])
     flash[:success] = "Tile updated"
-    redirect_to "/maps/#{@placement.map_id}"
+    redirect_to "/placements?id=#{@placement.map_id}"
   end
 end

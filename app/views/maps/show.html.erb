@@ -12,4 +12,40 @@
 <br>
 <% if @map.user.id == current_user.id %>
   <%= link_to "Delete Map", "/maps/#{@map.id}", method: :delete, class: "btn btn-danger" %>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+    <% slide_number = 0 %>
+    <% @tiles.each do |tile| %>
+      <li data-target="#carousel-example-generic" data-slide-to="<%= slide_number %>" class="active"></li>
+      <% slide_number += 1 %>
+    <% end %>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+    <% @tiles.each do |tile| %>
+      <div class="item">
+        <h1><%= image_tag "#{tile.path}.png", {class: "tiles"} %></h1>
+        <div class="carousel-caption">
+        </div>
+      </div>
+    <% end %>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 <% end %>
