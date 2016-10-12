@@ -20,23 +20,19 @@
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-    <% slide_number = 0 %>
-    <% @tiles.each do |tile| %>
-      <li data-target="#carousel-example-generic" data-slide-to="<%= slide_number %>" class="active"></li>
-      <% slide_number += 1 %>
-    <% end %>
-    </ol>
+        <% @tiles.each do |tile| %>
+          <li data-target="#myCarousel" data-slide-to="<%= tile %>"></li>
+        <% end %>
+      </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-    <% @tiles.each do |tile| %>
-      <div class="item">
-        <h1><%= image_tag "#{tile.path}.png", {class: "tiles"} %></h1>
-        <div class="carousel-caption">
-        </div>
+        <% @tiles.each do |tile| %>
+          <div class="item <%= 'active' if tile == @tiles[0] %>">          
+            <%= image_tag "#{tile.path}.png" %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-    </div>
 
     <!-- Controls -->
     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
