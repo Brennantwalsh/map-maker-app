@@ -30,7 +30,7 @@ class MapsController < ApplicationController
   def show
     @map = Map.find(params[:id])
     @tiles = Tile.all
-    @images = @map.placements.order(:row, :id)
+    @placements = @map.placements.order(:row, :id)
     @participations = Participation.where(journey_id: @map.journey_id).find_by(user_id: current_user.id)
     if @participations
       @visibility = Visibility.where(participation_id: @participations.id)

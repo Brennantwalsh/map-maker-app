@@ -43,15 +43,9 @@ iframe.images{
 }
 table {
     margin: 0px auto; 
-    position:absolute;
-       top:0px;
-       left:0px; 
-       z-index: 2;          
+            
 }​
 svg {
-  position:absolute;
-     top:0px;
-     left:0px;
-     z-index: 2;
+
 
 }
