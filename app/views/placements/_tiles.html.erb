@@ -1,5 +1,5 @@
 <% if placement.map.user.id == current_user.id %>    
- <th> <%= link_to  (image_tag "#{placement.tile.path}.png", {class: "tiles", id: "#{placement.id}", draggable: true, ondrop: "drop(event)", ondragover: "allowDrop(event)"}), "/placements/#{placement.id}/edit"%></th>
+ <th> <%= link_to  (image_tag "#{placement.tile.path}.png", {class: "tiles", id: "#{placement.tile.id}", draggable: true, ondrop: "drop(event)", ondragover: "allowDrop(event)", ondragstart: "drag(event)"}), "/placements/#{placement.id}/edit"%></th>
 <% elsif current_user.id == @participations.user_id && @visibility.find_by(placement_id: placement.id)%>
  <th><%= image_tag "#{placement.tile.path}.png", {class: "tiles"} %></th>
 <% else %>

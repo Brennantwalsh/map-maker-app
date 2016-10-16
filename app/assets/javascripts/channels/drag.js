@@ -3,11 +3,13 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-    ev.dataTransfer.setData("image", ev.target.id);
+    ev.dataTransfer.setData("tile", ev.target.id);
 }
 
 function drop(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("image");
-    ev.target.appendChild(document.getElementById(data));
+    var data = ev.dataTransfer.getData("tile");
+    var nodeCopy = document.getElementById(data).cloneNode(true);
+      nodeCopy.id = "newId"; /* We cannot use the same ID */
+      ev.target.appendChild(nodeCopy);
 }

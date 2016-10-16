@@ -19,15 +19,15 @@
 </table>
   
 <br>
+  <div id="dropzone", ondrop="drop(event)", ondragover="allowDrop(event)", draggable=true, ondragstart="drag(event)" >
+    Drop here
+  </div>
 
 
 <br>
 <% if @map.user.id == current_user.id %>
   <%= link_to "Delete Map", "/maps/#{@map.id}", method: :delete, class: "btn btn-danger" %>
   <br>
-  <div id="dropzone", ondrop="drop(event)", ondragover="allowDrop(event)">
-    Drop here
-  </div>
   <br>
   <br>
   <br>
@@ -42,7 +42,7 @@
       <% counter = 0 %>
         <% @tiles.each do |tile| %>
           <% if counter < 4 %>
-            <th><%=link_to (image_tag "#{tile.path}.png", {class: "tiles", id: "#{tile.id}", draggable: true, ondragstart: "drag(event)"}), "/tiles/#{tile.id}" %></th>
+            <th  id="dropzone", ondrop="drop(event)", ondragover="allowDrop(event)"><%=link_to (image_tag "#{tile.path}.png", {class: "tiles", id: "#{tile.id}", draggable: true, ondragstart: "drag(event)", ondrop: "drop(event)", ondragover: "allowDrop(event)"}), "/tiles/#{tile.id}" %></th>
             <% counter += 1 %>
           <% else %>
           </tr>
