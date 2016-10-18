@@ -19,7 +19,7 @@
 </table>
   
 <br>
-  <div id="dropzone", ondrop="drop(event)", ondragover="allowDrop(event)", draggable=true, ondragstart="drag(event)" >
+  <div ondrop="drop(event)" ondragover="allowDrop(event)" draggable=true ondragstart="drag(event)" >
     Drop here
   </div>
 
@@ -42,7 +42,7 @@
       <% counter = 0 %>
         <% @tiles.each do |tile| %>
           <% if counter < 4 %>
-            <th  id="dropzone", ondrop="drop(event)", ondragover="allowDrop(event)"><%=link_to (image_tag "#{tile.path}.png", {class: "tiles", id: "#{tile.id}", draggable: true, ondragstart: "drag(event)", ondrop: "drop(event)", ondragover: "allowDrop(event)"}), "/tiles/#{tile.id}" %></th>
+            <th ondrop="drop(event)" ondragover="allowDrop(event)"><%=link_to (image_tag "#{tile.path}.png", {class: "tiles", id: "#{tile.id}", draggable: true, ondragstart: "drag(event)", ondrop: "drop(event)", ondragover: "allowDrop(event)"}), "/tiles/#{tile.id}" %></th>
             <% counter += 1 %>
           <% else %>
           </tr>

@@ -60,6 +60,6 @@ class MapsController < ApplicationController
     @map.destroy
 
     flash[:success] = 'Sad. Already looted'
-    redirect_to '/maps/new'
+    redirect_to '/'
   end
 end
