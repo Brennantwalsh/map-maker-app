@@ -19,11 +19,6 @@
 </table>
   
 <br>
-  <div ondrop="drop(event)" ondragover="allowDrop(event)" draggable=true ondragstart="drag(event)" >
-    Drop here
-  </div>
-
-
 <br>
 <% if @map.user.id == current_user.id %>
   <%= link_to "Delete Map", "/maps/#{@map.id}", method: :delete, class: "btn btn-danger" %>
@@ -47,7 +42,7 @@
           <% else %>
           </tr>
           <tr>
-            <th><%=link_to (image_tag "#{tile.path}.png", {class: "tiles"}), "/tiles/#{tile.id}" %></th>
+            <th ondrop="drop(event)" ondragover="allowDrop(event)"><%=link_to (image_tag "#{tile.path}.png", {class: "tiles"}), "/tiles/#{tile.id}" %></th>
             <% counter -= 3 %>
           <% end %>
         <% end %>

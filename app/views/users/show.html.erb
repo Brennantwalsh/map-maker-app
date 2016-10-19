@@ -1,20 +1,20 @@
-<h1>Hero Info:</h1>
+<h1 class="Header">Hero Info:</h1>
 <br>
-<h2><%= @user.username.titleize %></h2>
-<h2><%= @user.email %></h2>
+<h2 class="journey"><%= @user.username.titleize %></h2>
+<h2 class="journey"><%= @user.email %></h2>
 <br>
-<h1>Your Created Journey's</h1>
-<ul>
+<h1 class="Header">Your Created Journey's</h1>
+<ul class="journey">
 <% @user.journeys.each do |journey| %>
   <li><%= link_to journey.name, "/journeys/#{journey.id}", method: :get, class: "btn btn-info" %></li>
 <% end %>
 </ul>
-<h1>Your Participated Journey's</h1>
-<ul>
+<h1 class="Header">Your Participated Journey's</h1>
+<ul class="journey">
 <% @user.participated_journeys.each do |journey| %>
   <li><%= link_to journey.name, "/journeys/#{journey.id}", method: :get, class: "btn btn-info" %></li>
 <% end %>
 </ul>
   
 <br>
-<h3><%= link_to 'New Journey', '/journeys/new', method: :get, class: "btn btn-success" %></h3>
+<h3 class="journey"><%= link_to 'New Journey', '/journeys/new', method: :get, class: "btn btn-success" %></h3>

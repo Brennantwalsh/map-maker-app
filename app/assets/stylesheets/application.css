@@ -15,7 +15,7 @@
  */
 
 body{
-  background-image: url('old_map.png');
+  background-image: url('map.jpeg');
   font-family: Papyrus,fantasy;
 }
 
@@ -48,4 +48,11 @@ table {
 svg {
 
 
+}
+.journey {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
 }
