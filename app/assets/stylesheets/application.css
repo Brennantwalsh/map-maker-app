@@ -19,11 +19,30 @@ body{
   font-family: Papyrus,fantasy;
 }
 
+div.transparent{
+  background: rgba(251, 205, 154, 0.5);
+  border-width: 10px
+  border-color: black;
+  border-style: solid;
+  border-radius: 25px;
+  
+}
+
+#map-builder > div.fatty{
+  float: left;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 
 .tiles{
   height: 200px;
   width: 200px;
-  
+}
+.map-tiles{
+  height: 250px;
+  width: 100%;
 }
 h1.Header {
   text-align: center;
@@ -31,28 +50,9 @@ h1.Header {
 h3.description{
   text-align: center;
 }
-
-iframe{
-  height: 700px;
-  width: 1100px;
-}
-
-iframe.images{
-  height: 225px;
-  width: 1100px;
-}
-table {
-    margin: 0px auto; 
-            
-}​
-svg {
-
-
+ul {
+  list-style-type: none;
 }
 .journey {
   text-align: center;
-}
-
-ul {
-  list-style-type: none;
 }

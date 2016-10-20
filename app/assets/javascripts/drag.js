@@ -13,4 +13,14 @@ function drop(ev) {
     console.log(data);
       var newSrc = "/assets/" + data;
       ev.target.src = newSrc;
+      var placement = ev.target;
+      var tileId = {"tile_id": data}
+      $.ajax({
+        type: 'PATCH',
+        url: "/placements/" + placment,
+        data: tileId,
+        success: "added to the database"
+      });
+      
+
 }

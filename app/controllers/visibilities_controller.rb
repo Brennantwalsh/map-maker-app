@@ -5,6 +5,6 @@ class VisibilitiesController < ApplicationController
 
     look = Placement.find(params[:placement_id])
     flash[:success] = "The path expands"
-    redirect_to "/placements?id=#{look.map_id}"
+    redirect_to "/maps/#{look.map_id}"
   end
 end
