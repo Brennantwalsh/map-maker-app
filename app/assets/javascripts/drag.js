@@ -17,7 +17,7 @@ function drop(ev) {
       var tileId = {"tile_id": data}
       $.ajax({
         type: 'PATCH',
-        url: "/placements/" + placment,
+        url: "/placements/" + placement,
         data: tileId,
         success: "added to the database"
       });
