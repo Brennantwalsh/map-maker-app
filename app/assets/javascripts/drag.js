@@ -4,12 +4,14 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("tiles", ev.target.id);
-    console.log(ev.dataTransfer.setData);
+    ev.dataTransfer.setData("path", ev.target.src);
+
 }
 
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("tiles");
+    ev.target.src = ev.dataTransfer.getData("path");
       var placement = ev.target.id;
       var tileId = {"tile_id": data}
       var url = "/placements/" + placement;
@@ -20,13 +22,6 @@ function drop(ev) {
           data: JSON.stringify({
               tile_id: data
           })
-      })
-      .then(
-          function success(userInfo) {
-            $.ajax(url, {
-              method: 'GET'
-            })
-          }
-      );
+      });
 
 }
