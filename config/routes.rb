@@ -25,9 +25,10 @@ Rails.application.routes.draw do
 
   get '/placements' => 'placements#index'
   get '/placements/:id/edit' => 'placements#edit'
-  patch '/placements/:id' => 'placements#update'
+  put '/placements/:id' => 'placements#update'
 
   post '/participations/create' => 'participations#create'
 
   post '/visibilities/create' => 'visibilities#create'
+
 end

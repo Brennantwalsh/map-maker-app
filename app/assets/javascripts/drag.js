@@ -10,17 +10,23 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("tiles");
-    console.log(data);
-      var newSrc = "/assets/" + data;
-      ev.target.src = newSrc;
-      var placement = ev.target;
+      var placement = ev.target.id;
       var tileId = {"tile_id": data}
-      $.ajax({
-        type: 'PATCH',
-        url: "/placements/" + placement,
-        data: tileId,
-        success: "added to the database"
-      });
-      
+      var url = "/placements/" + placement;
+      $.ajax(url, {
+          method: 'PUT',
+          contentType: 'application/json',
+          processData: false,
+          data: JSON.stringify({
+              tile_id: data
+          })
+      })
+      .then(
+          function success(userInfo) {
+            $.ajax(url, {
+              method: 'GET'
+            })
+          }
+      );
 
 }
