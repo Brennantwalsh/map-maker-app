@@ -75,7 +75,7 @@
   <button ng-click="showTiles()">All Tiles</button>  
     <div ng-if="showBar">
         <% @tiles.each do |tile| %>
-            <div class='col-md-2' ondrop="drop(event)" ondragover="allowDrop(event)"><%=link_to (image_tag "#{tile.path}.png", {class: "tiles", id: "#{tile.id}", path: "#{tile.path}", draggable: true, ondragstart: "drag(event)", ondrop: "drop(event)", ondragover: "allowDrop(event)"}), "/tiles/#{tile.id}" %></div>
+            <div class='col-md-2' ondrop="drop(event)" ondragover="allowDrop(event)"><%=link_to (image_tag "#{tile.path}.png", {class: "tiles", id: "#{tile.id}", draggable: true, ondragstart: "drag(event)", ondrop: "drop(event)", ondragover: "allowDrop(event)"}), "/tiles/#{tile.id}" %></div>
         <% end %>
     </div>
       
