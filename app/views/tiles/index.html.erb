@@ -1,17 +1,9 @@
-<table style="width:0%">
-  <tr>
-  <% counter = 0 %>
+    <div class="transparent">
+      <h1 class="Header">Tiles View</h1>
+    </div>
+    <br>
     <% @tiles.each do |tile| %>
-      <% if counter < 4 %>
-        <th><%=link_to (image_tag "#{tile.path}.png", {class: "tiles"}), "/tiles/#{tile.id}" %></th>
-        <% counter += 1 %>
-      <% else %>
-      </tr>
-      <tr>
-        <th><%=link_to (image_tag "#{tile.path}.png", {class: "tiles"}), "/tiles/#{tile.id}" %></th>
-        <% counter -= 3 %>
-      <% end %>
+    <div class="col-xs-3">
+      <%= image_tag "#{tile.path}.png", {class: "map-tiles" } %> 
+    </div>
     <% end %>
-  </tr>
-</table>
-<%= will_paginate @posts %>

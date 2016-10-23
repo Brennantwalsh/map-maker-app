@@ -13,6 +13,7 @@
     <ul class="journey">
       <% @journey.maps.each do |map| %>
         <li><%= link_to map.name, "/maps/#{map.id}", method: :get, class: "btn btn-info"  %></li>
+        <br>
       <% end %>
     </ul>
     <br>
@@ -30,16 +31,16 @@
           <%= label_tag :column_number %>
           <%= select_tag(:column_number, options_for_select([3, 4, 6]))%>
           <%= hidden_field_tag :journey_id, @journey.id %>
-          <%= submit_tag "Dry the ink" %>
+          <%= submit_tag "Dry the ink", class: "btn btn-info" %>
         </div>
         <% end %>
         <h3 class="journey">Add People to the Journey:</h3>
         <div class="journey">
-        <%= form_tag "/participations/create", method: :post do %>
+        <%= form_tag "/participations", method: :post do %>
           <h4><%= label_tag :username %></h4>
           <h4><%= text_field_tag :username %></h4>
           <%= hidden_field_tag :journey_id, @journey.id %>
-          <%= submit_tag "Join the Crew" %>
+          <%= submit_tag "Join the Crew", class: "btn btn-info" %>
         <% end %>
         </div>
     <% end %>

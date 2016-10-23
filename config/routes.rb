@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
-  get '/journeys' => 'journeys#index'
-  get '/journeys/new' => 'journeys#new'
   post '/journeys' => 'journeys#create'
   get '/journeys/:id' => 'journeys#show'
 
@@ -27,8 +25,5 @@ Rails.application.routes.draw do
   get '/placements/:id/edit' => 'placements#edit'
   put '/placements/:id' => 'placements#update'
 
-  post '/participations/create' => 'participations#create'
-
-  post '/visibilities/create' => 'visibilities#create'
-
+  post '/participations' => 'participations#create'
 end

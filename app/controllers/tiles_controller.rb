@@ -1,11 +1,11 @@
 class TilesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @tiles = Tile.paginate(:page => params[:page], :per_page => 28).order("path")
+    @tiles = Tile.all.order("path")
     sort_attribute = params[:sort]
 
     if sort_attribute
-      @tiles = Tile.paginate(:page => params[:page], :per_page => 28).where("path ILIKE ?", "%#{sort_attribute}%")
+      @tiles = Tile.where("path ILIKE ?", "%#{sort_attribute}%")
     end  
   end
 

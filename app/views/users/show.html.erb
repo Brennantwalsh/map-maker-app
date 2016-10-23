@@ -9,15 +9,22 @@
 <ul class="journey">
 <% @user.journeys.each do |journey| %>
   <li><%= link_to journey.name, "/journeys/#{journey.id}", method: :get, class: "btn btn-info" %></li>
+  <br>
 <% end %>
 </ul>
 <h1 class="Header">Your Participated Journey's</h1>
 <ul class="journey">
 <% @user.participated_journeys.each do |journey| %>
   <li><%= link_to journey.name, "/journeys/#{journey.id}", method: :get, class: "btn btn-info" %></li>
+  <br>
 <% end %>
 </ul>
-  
-<br>
-<h3 class="journey"><%= link_to 'New Journey', '/journeys/new', method: :get, class: "btn btn-success" %></h3>
+
+<h1 class="Header">Start a New Journey</h1>
+
+<%= form_tag '/journeys', method: :post do %>
+  <h4 class="journey"><%= label_tag :name %><%= text_field_tag :name %></h4>
+  <h4 class="journey"><%= label_tag :description %><%= text_field_tag :description %></h4>
+  <h4 class="journey"><%= submit_tag "It began as all journey's do...", class: "btn btn-info" %></h4>
+<% end %>
 </div>

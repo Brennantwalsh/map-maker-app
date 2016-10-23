@@ -12,7 +12,6 @@ class PlacementsController < ApplicationController
   def update
     @placement = Placement.find(params[:id])
     @placement.update(tile_id: params[:tile_id])
-    flash[:success] = "Tile updated"
     redirect_to "/maps/#{@placement.map_id}"
   end
 end
