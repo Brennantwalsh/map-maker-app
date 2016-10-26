@@ -38,17 +38,14 @@ class MapsController < ApplicationController
   end
 
   def edit
+    @map = Map.find(params[:id])
   end
 
   def update
     @map = Map.find(params[:id])
     @map.update(
       name: params[:name],
-      description: params[:description],
-      row_number: params[:row_number],
-      column_number: params[:column_number],
-      creator_id: current_user.id,
-      journey_id: params[:journey_id]
+      description: params[:description]
     )
 
     flash[:success] = 'Ahh so that is the right way to go'

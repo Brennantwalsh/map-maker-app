@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   post '/journeys' => 'journeys#create'
   get '/journeys/:id' => 'journeys#show'
+  get '/journeys/:id/edit' => 'journeys#edit'
+  patch '/journeys/:id' => 'journeys#update'
+  delete '/journeys/:id' => 'journeys#destroy'
 
   get '/maps/new' => 'maps#new'
   post '/maps' => 'maps#create'

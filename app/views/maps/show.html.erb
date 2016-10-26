@@ -2,6 +2,9 @@
   <span><h1 class="Header"><%= @map.name %></h1></span>
   <h3 class= "description"><%=@map.description %></h3>
   <h4>Journey: <%= link_to @map.journey.name, "/journeys/#{@map.journey_id}", method: :get, class: "btn btn-info"   %></h4>
+  <% if current_user.id == @map.creator_id %>
+    <h4>Edit Map: <%= link_to "Edit", "/maps/#{@map.id}/edit", method: :get, class: "btn btn-info" %></h4>
+  <% end %>
 </div>
 <br>
 <% if current_user.id != @map.creator_id  %>

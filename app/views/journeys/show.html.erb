@@ -45,5 +45,13 @@
         </div>
     <% end %>
     <br>
+    <div class="journey">
+      <%= link_to "Edit Journey", "/journeys/#{@journey.id}/edit", method: :get, class: "btn btn-info" %>
+    </div> 
+    <br>
+    <div class="journey">
+      <%= link_to "End Journey", "/journeys/#{@journey.id}", method: :delete, class: "btn btn-danger" %>
+    </div>
+    <br> 
 </div>
 <br>
