@@ -19,6 +19,15 @@ div.transparent{
   padding-right: 0;
 }
 
+#map-builder {
+  border-radius: 25px;
+  overflow: hidden;
+}
+svg {
+  border-radius: 25px;
+  overflow: hidden;
+}
+
 #reveal {
       position: absolute;
       z-index: 500;
