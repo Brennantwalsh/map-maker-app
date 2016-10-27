@@ -78,21 +78,27 @@
 <% if @map.user.id == current_user.id %>
   <%= link_to "Delete Map", "/maps/#{@map.id}", method: :delete, class: "btn btn-danger" %>
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
 
 <div ng-app="app">
-  <div ng-controller="mapsController">
+  <div ng-controller="mapsController" ng-init="setup()">
 
-  <button ng-click="showTiles()">All Tiles</button>  
+  <button ng-click="showTiles()" class="btn btn-info">All Tiles</button>
+
+  <datalist id="tiles">
+      <option ng-repeat="tile in tiles">{{ tile.path }}</option> 
+  </datalist> 
+
+  <div class="transparent">
+    <h4 class="journey">Search Tile by Name:</h4>
+    <input type="text" ng-model="tileFilter" list="tiles">
+    <h4 class="journey">Limit Return:</h4>
+    <input type="text" ng-model="limitToThis" id="number">
+  </div>
     <div ng-if="showBar">
-        <% @tiles.each do |tile| %>
-            <div class='col-md-2' ondrop="drop(event)" ondragover="allowDrop(event)"><%=link_to (image_tag "#{tile.path}.png", {class: "tiles", id: "#{tile.id}", draggable: true, ondragstart: "drag(event)", ondrop: "drop(event)", ondragover: "allowDrop(event)"}), "/tiles/#{tile.id}" %></div>
-        <% end %>
+      <div class="col-md-2" ng-repeat="tile in tiles | filter: { path: tileFilter } | limitTo: limitToThis" ondragover="allowDrop(event)">
+        <img src="/images/{{ tile.path }}.png" draggable="true" class="tiles" id="{{tile.id}}" ondragstart="drag(event)" ondrop="drop(event)">
+      </div>
     </div>
-      
   </div>
 </div>
 <% end %>
