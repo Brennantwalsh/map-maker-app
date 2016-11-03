@@ -73,7 +73,9 @@
 <br>
 <br>
 <br>
-<script>
-  mover();
-  hello();
-</script>
+<% if @map.user.id != current_user.id %>
+  <script>
+    mover();
+    hello();
+  </script>
+<% end %>

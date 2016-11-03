@@ -80,12 +80,12 @@ function hello() {
     that.render = function () {
     
       // Clear the canvas
-      that.context.clearRect(0, 0, that.width, that.height);
+      that.context.clearRect(0, 0, 1000, 1000);
       
       // Draw the animation
       that.context.drawImage(
         that.image,
-        frameIndex * that.width / numberOfFrames,
+        frameIndex * (that.width / numberOfFrames),
         0,
         that.width / numberOfFrames,
         that.height,
@@ -93,6 +93,7 @@ function hello() {
         yAxis,
         that.width / numberOfFrames,
         that.height);
+
     };
     
     return that;
@@ -107,11 +108,11 @@ function hello() {
   // Create sprite
   soldierSprite = sprite({
     context: canvas.getContext("2d"),
-    width: 256,
+    width: 578.2,
     height: 100,
     image: spriteImage,
-    numberOfFrames: 4,
-    ticksPerFrame: 10
+    numberOfFrames: 9,
+    ticksPerFrame: 3
   });
   
   // Load sprite sheet
