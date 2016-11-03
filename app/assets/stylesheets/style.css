@@ -35,6 +35,14 @@ svg {
       width: 90%;
       height: 1140px;
     }
+    
+#hobbit {
+      position: absolute;
+      z-index: 500;
+      width: 90%;
+      height: 1140px;
+    }
+
 
 .btn-info {
   color: #000;
