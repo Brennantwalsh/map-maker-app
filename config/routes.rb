@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
   get '/users/:id' => 'users#show'
 
+  get '/' => 'sessions#new'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
@@ -20,7 +21,6 @@ Rails.application.routes.draw do
   patch '/maps/:id' => 'maps#update'
   delete '/maps/:id' => 'maps#destroy'
 
-  get '/' => 'tiles#index'
   get '/tiles' => 'tiles#index'
   get '/tiles/:id' => 'tiles#show'
 

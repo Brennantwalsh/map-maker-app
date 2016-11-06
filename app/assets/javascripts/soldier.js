@@ -33,7 +33,6 @@ var spriteImage = new Image();
         };
 }());
 
-function hello() {
       
   var soldierSprite,
     canvas;         
@@ -77,6 +76,7 @@ function hello() {
             }
         };
     
+function hello() {
     that.render = function () {
     
       // Clear the canvas

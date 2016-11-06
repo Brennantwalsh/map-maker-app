@@ -13,6 +13,8 @@ div.transparent{
 }
 
 
+
+
 #map-builder > div.fatty{
   float: left;
   margin: 0;
@@ -74,4 +76,16 @@ ul {
 }
 .journey {
   text-align: center;
+}
+.opener {
+  height: auto;
+  width: 1100px;
+}
+.knight {
+  position: absolute;
+  height: auto;
+  width: 700px;
+  z-index: -100;
+  top: 35%;
+  left: 25%;
 }

@@ -1,9 +1,10 @@
+<img class="knight" src="/images/knight.jpg">
 
 <div class="transparent">
 <% @user.errors.full_messages.each do |error| %>
-  <ol> 
+  <ul class="journey"> 
     <li class="journey"><%= error %></li>
-  </ol>
+  </ul>
 <% end %>
   <div class="journey">
   

@@ -8,6 +8,6 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :email, uniqueness: true
 
-  validates :email, format: { with: /\w+@\w+\.\w{2,3}/i, message: "Not Valid" }
+  validates :email, format: { with: /\A\w+@\w+\.\w{2,3}\z/i, message: "Not Valid" }
   validates :username, format: { with: /\w{3, 15}/, message: "must be between 3 and 15 characters in length"}
 end
