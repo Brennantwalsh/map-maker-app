@@ -1,8 +1,8 @@
 User.create!([
-  {username: "joe", email: "joe@gmail.com", password_digest: "$2a$10$Ubl.3/va2JlE0QIaG235tOn9K4upzuKc0Ikrwjzf.dAoUJAIwT5cW"},
-  {username: "joseph", email: "joseph@gmail.com", password_digest: "$2a$10$Qj9MEiv/p4KAYUQYPngq3OLemx.zHL8kSWqidvwbGliMnQnaeVW4K"},
-  {username: "jerry", email: "jerry@gmail.com", password_digest: "$2a$10$OvIagK/yk1ISR4bKzL.KeOGYoQBWoAfyy.awoHCFXE2kvgFDYe0aO"},
-  {username: "kait", email: "kait@gmail.com", password_digest: "$2a$10$A7u.0LDe8Rhs6M8WNvHpBufN48GyE/ceBVpxrlmwPHx9I5oREZLXm"}
+  {username: "joe", email: "joe@gmail.com", password: "password", password_confirmation: "password"},
+  {username: "joseph", email: "joseph@gmail.com", password: "password", password_confirmation: "password"},
+  {username: "jerry", email: "jerry@gmail.com", password: "password", password_confirmation: "password"},
+  {username: "kait", email: "kait@gmail.com", password: "password", password_confirmation: "password"}
 ])
 Tile.create!([
   {path: "empty"},
