@@ -45,6 +45,7 @@
         </div>
     <% end %>
     <br>
+    <% if current_user.id == @journey.dm_id %>
     <div class="journey">
       <%= link_to "Edit Journey", "/journeys/#{@journey.id}/edit", method: :get, class: "btn btn-info" %>
     </div> 
@@ -54,4 +55,5 @@
     </div>
     <br> 
 </div>
+  <% end %>
 <br>
