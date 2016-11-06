@@ -1,7 +1,7 @@
 (function() {
   "use strict";
 
-  angular.module("app").controller("mapsController", ['$scope', '$http', $function($scope, $http) {
+  angular.module("app").controller("mapsController", function($scope, $http) {
     $scope.setup = function() {
       $http.get("/tiles.json").then(function(response) {
         $scope.tiles = response.data
@@ -14,6 +14,6 @@
     };
 
   $scope.limitToThis = 10;
-  }]);
+  });
 
 }());
