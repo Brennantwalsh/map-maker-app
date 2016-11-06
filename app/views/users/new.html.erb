@@ -1,4 +1,10 @@
+
 <div class="transparent">
+<% @user.errors.full_messages.each do |error| %>
+  <ol> 
+    <li class="journey"><%= error %></li>
+  </ol>
+<% end %>
   <div class="journey">
   
     <h1>Sign Up to Begin Your Journey</h1>
