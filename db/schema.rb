@@ -64,11 +64,4 @@ ActiveRecord::Schema.define(version: 20161006003918) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "visibilities", force: :cascade do |t|
-    t.integer  "participation_id"
-    t.integer  "placement_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
 end

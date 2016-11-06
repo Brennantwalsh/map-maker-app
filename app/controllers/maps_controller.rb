@@ -32,9 +32,6 @@ class MapsController < ApplicationController
     @tiles = Tile.all
     @placements = @map.placements.order(:row, :id)
     @participations = Participation.where(journey_id: @map.journey_id).find_by(user_id: current_user.id)
-    if @participations
-      @visibility = Visibility.where(participation_id: @participations.id)
-    end
   end
 
   def edit
