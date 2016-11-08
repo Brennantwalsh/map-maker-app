@@ -2,6 +2,7 @@ var xAxis = 50;
 var yAxis = 45;
 var src = "soldier.png";
 var spriteImage = new Image();
+var amountOfTicks = 100;
 
 
 (function() {
@@ -76,7 +77,6 @@ var spriteImage = new Image();
             }
         };
     
-function hello() {
     that.render = function () {
     
       // Clear the canvas
@@ -99,6 +99,7 @@ function hello() {
     return that;
   }
   
+function hello() {
   // Get canvas
   canvas = document.getElementById("hobbit");
   canvas.width = 1000;
@@ -112,7 +113,7 @@ function hello() {
     height: 100,
     image: spriteImage,
     numberOfFrames: 9,
-    ticksPerFrame: 3
+    ticksPerFrame: amountOfTicks
   });
   
   // Load sprite sheet
