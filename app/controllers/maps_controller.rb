@@ -32,6 +32,7 @@ class MapsController < ApplicationController
     @tiles = Tile.all
     @placements = @map.placements.order(:row, :id)
     @participations = Participation.where(journey_id: @map.journey_id).find_by(user_id: current_user.id)
+    @messages = Message.order('created_at DESC').limit(3)
   end
 
   def edit

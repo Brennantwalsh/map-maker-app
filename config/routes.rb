@@ -29,4 +29,6 @@ Rails.application.routes.draw do
   put '/placements/:id' => 'placements#update'
 
   post '/participations' => 'participations#create'
+
+  mount ActionCable.server => '/cable'
 end

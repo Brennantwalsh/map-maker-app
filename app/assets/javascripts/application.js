@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require cable
 //= require bootstrap.min
 //= require jquery_ujs
 //= require angular
