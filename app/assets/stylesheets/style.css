@@ -11,6 +11,10 @@ div.transparent{
   border-radius: 25px;
   
 }
+img.logo{
+  width: 45px;
+  height: 45px;
+}
 div.boxes{
   text-align: center;
   overflow: hidden;
@@ -27,6 +31,7 @@ p.encased{
   border-color: black;
   background-color: black;
   color: white;
+  border-radius: 700px;
 }
 
 

@@ -9,7 +9,7 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-light" style="background-color: #82E0AA;"">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -24,11 +24,13 @@
         <% else %>
           <a class="navbar-brand" href="/login">Master's Maps</a>  
         <% end %>
+        <img src="/images/dragon.svg" alt="" class="logo">
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
+        <img src="/images/black-knight.png" alt="" class="logo">
           <% if current_user %>
             <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
           <% else %>

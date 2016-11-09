@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :journeys, foreign_key: :dm_id
   has_many :participations
   has_many :participated_journeys, through: :participations, source: :journey
+  has_many :messages
 
   validates :email, presence: true
   validates :email, uniqueness: true
