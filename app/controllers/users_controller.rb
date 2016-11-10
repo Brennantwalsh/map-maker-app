@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     @user = User.new(username: params[:username],
                      email: params[:email],
                      password: params[:password],
-                     password_confirmation: params[:password_confirmation])
+                     password_confirmation: params[:password_confirmation],
+                     avatar: params[:avatar])
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = 'Created User'
@@ -17,6 +18,12 @@ class UsersController < ApplicationController
       flash[:warning] = 'Incorrect username or password'
       render 'new.html.erb'
     end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(avatar: params[:avatar])
+    redirect_to "/users/#{@user.id}"
   end
 
   def show

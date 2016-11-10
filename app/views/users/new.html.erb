@@ -1,4 +1,3 @@
-<img class="knight" src="/images/knight.jpg">
 
 <div class="transparent">
 <% @user.errors.full_messages.each do |error| %>
@@ -10,7 +9,7 @@
   
     <h1>Sign Up to Begin Your Journey</h1>
 
-    <%= form_tag '/users', method: :post do  %>
+    <%= form_tag '/users', method: :post, multipart: true do  %>
       <div>
         <%= label_tag :username %>
         <%= text_field_tag :username %>
@@ -27,7 +26,13 @@
         <%= label_tag :password_confirmation %>
         <%= password_field_tag :password_confirmation %>
       </div>
-
+      <div>
+        <%= label_tag :avatar %>
+        <h3 class="filer"><%= file_field_tag :avatar %></h3>
+      </div>
+      <br>
+      <br>
+      <br>
       <%= submit_tag "Begin Your Quest!", class: "btn btn-info"%>
     <% end %>
   </div>  

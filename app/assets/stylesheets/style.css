@@ -11,9 +11,17 @@ div.transparent{
   border-radius: 25px;
   
 }
+img.thumbnail{
+  display: block;
+  margin: 0 auto;
+}
 img.logo{
   width: 45px;
   height: 45px;
+}
+h3.filer{
+  left: 40%;
+  position: absolute;
 }
 div.boxes{
   text-align: center;

@@ -2,6 +2,16 @@
   
 <h1 class="Header">Hero Info:</h1>
 <br>
+<div class="journey"><%= image_tag @user.avatar.url(:thumb), class: "thumbnail" %></div>
+<div class="journey">
+  <%= form_tag "/users/#{@user.id}", method: :patch, multipart: true do  %>
+      <h3 class="filer"><%= file_field_tag :avatar %></h3>
+      <br>
+      <br>
+      <br>
+    <%= submit_tag "Update Avatar!", class: "btn btn-info"%>
+  <% end %>
+</div>  
 <h2 class="journey"><%= @user.username.titleize %></h2>
 <h2 class="journey"><%= @user.email %></h2>
 <br>
