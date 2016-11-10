@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/dragon.svg"
   has_many :maps, foreign_key: :creator_id
   has_many :journeys, foreign_key: :dm_id
   has_many :participations
