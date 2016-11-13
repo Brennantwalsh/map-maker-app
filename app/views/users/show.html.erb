@@ -1,8 +1,9 @@
 <div class="transparent">
-  
+  <canvas id="easter" class="easter" draggable="true"> 
+  </canvas>
 <h1 class="Header">Hero Info:</h1>
 <br>
-<h2 class="journey"><%= @user.username.titleize %></h2>
+<h2 class="journey" onclick="hello()"><%= @user.username.titleize %></h2>
 <div class="journey"><%= image_tag @user.avatar.url(:thumb), class: "thumbnail" %></div>
 <div class="journey">
   <%= form_tag "/users/#{@user.id}", method: :patch, multipart: true do  %>
@@ -15,14 +16,14 @@
 </div>  
 <h2 class="journey"><%= @user.email %></h2>
 <br>
-<h1 class="Header">Your Created Journey's</h1>
+<h1 class="Header">Your Created Journeys</h1>
 <ul class="journey">
 <% @user.journeys.each do |journey| %>
   <li><%= link_to journey.name, "/journeys/#{journey.id}", method: :get, class: "btn btn-info" %></li>
   <br>
 <% end %>
 </ul>
-<h1 class="Header">Your Participated Journey's</h1>
+<h1 class="Header">Your Participated Journeys</h1>
 <ul class="journey">
 <% @user.participated_journeys.each do |journey| %>
   <li class="btn"><%= link_to journey.name, "/journeys/#{journey.id}", method: :get, class: "btn btn-info" %></li>

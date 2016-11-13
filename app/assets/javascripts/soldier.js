@@ -100,7 +100,7 @@ var amountOfTicks = 100;
   }
   
 function hello() {
-  canvas = document.getElementById("hobbit");
+  canvas = document.getElementById("hobbit") || document.getElementById("easter");
   canvas.width = 1000;
   canvas.height = 1000;
   
@@ -142,7 +142,7 @@ function movementUp() {
 }
 
 
-var spot = document.getElementById('hobbit');
+var spot = document.getElementById('hobbit') || document.getElementById("easter");
 var verticalMoveSpeed = 100
 var horizontalMoveSpeed = 100
 document.addEventListener('keydown', (event) => {
