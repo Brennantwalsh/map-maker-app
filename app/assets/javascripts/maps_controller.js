@@ -15,6 +15,10 @@
     $scope.showTiles = function() {
       $scope.showBar = !$scope.showBar;
     };
+    $scope.showChat = false;
+    $scope.showMessages = function() {
+      $scope.showChat = !$scope.showChat;
+    };
 
   $scope.limitToThis = 10;
   

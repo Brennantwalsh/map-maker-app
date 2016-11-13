@@ -1,5 +1,5 @@
 <% cache message do %>
   <div class="message">
-      <p class="encased"><%= message.user.username %>:  <%= message.content %></p>
+      <p class="encased"><%= image_tag message.user.avatar.url, {class: "small"} %><%= message.user.username %>:  <%= message.content %></p>
   </div>
 <% end %>

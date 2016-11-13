@@ -7,6 +7,11 @@ body{
   cursor: url("/images/sword.jpg"), auto;
 }
 
+.small{
+  height: 30px;
+  width: 30px;
+}
+
 div.transparent{
   background: rgba(251, 205, 154, 0.5);
   border-width: 10px

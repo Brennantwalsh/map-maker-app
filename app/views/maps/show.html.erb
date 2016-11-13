@@ -74,19 +74,24 @@
 <br>
 <br>
 <% if @map.user.id != current_user.id %>
-  <script>
-    mover();
-    hello();
-  </script>
-<% end %>
-<div class="boxes">
-<h2>Chat With Other Players:</h2>
-  <div id="messages">
-    <%= render @messages %>
-  </div>
+  <div ng-app="app">
+    <div ng-controller="mapsController" ng-init="setup()">
+      <div class="boxes">
+      <h2>Chat With Other Players:</h2>
+        <button ng-click="showMessages()" class="btn btn-info">Show Chat</button>
+        <div id="messages" ng-if="showChat">
+          <%= render @messages %>
+        </div>
 
-  <form>
-    <label> Say Something:</label><br>
-    <input id="<%= current_user.id %>" type="text" data-behavior="room_speaker">
-  </form>
-</div>
+        <form ng-if="showChat">
+          <label> Say Something:</label><br>
+          <input id="<%= current_user.id %>" name="<%= @map.id %>" type="text" data-behavior="room_speaker">
+        </form>
+      </div>
+    </div>
+  </div>
+    <script>
+      mover();
+      hello();
+    </script>
+<% end %>

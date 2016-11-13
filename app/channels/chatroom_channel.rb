@@ -10,6 +10,6 @@ class ChatroomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Message.create! content: data['message'], user_id: data['user_id']
+    Message.create! content: data['message'], user_id: data['user_id'], chat_room: data['chat_room']
   end
 end
