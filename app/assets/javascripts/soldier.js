@@ -147,16 +147,16 @@ var verticalMoveSpeed = 100
 var horizontalMoveSpeed = 100
 document.addEventListener('keydown', (event) => {
   var keyName = event.key;
-  if (keyName === 'ArrowUp'){ 
+  if (keyName === 'ArrowUp' && yAxis >= 45){ 
     movementUp();
   }
-  if (keyName === 'ArrowDown'){ 
+  if (keyName === 'ArrowDown' && yAxis <= 845){ 
     movementDown();
   }
-  if (keyName === 'ArrowLeft'){ 
+  if (keyName === 'ArrowLeft' && xAxis >= 50){ 
     movementLeft();
   }
-  if (keyName === 'ArrowRight'){ 
+  if (keyName === 'ArrowRight' && xAxis <= 850){ 
     movementRight();
   }
 });

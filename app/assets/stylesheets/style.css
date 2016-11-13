@@ -3,6 +3,10 @@ body{
   font-family: Papyrus,fantasy;
 }
 
+.btn{
+  cursor: url("/images/sword.jpg"), auto;
+}
+
 div.transparent{
   background: rgba(251, 205, 154, 0.5);
   border-width: 10px

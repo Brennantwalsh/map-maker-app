@@ -8,11 +8,11 @@ App.chatroom = App.cable.subscriptions.create "ChatroomChannel",
   received: (data) ->
     $('#messages').append data['message']
 
-  speak: (message) ->
-    @perform 'speak', message: message
+  speak: (message_hash) ->
+    @perform 'speak', { message: message_hash['message'], user_id: message_hash['user_id'] }
 
   $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
     if event.keyCode is 13 # return = send
-      App.chatroom.speak event.target.value
+      App.chatroom.speak {message: event.target.value, user_id: event.target.id }
       event.target.value = ''
       event.preventDefault()

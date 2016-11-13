@@ -24,13 +24,17 @@
         <% else %>
           <a class="navbar-brand" href="/login">Master's Maps</a>  
         <% end %>
-        <img src="/images/dragon.svg" alt="" class="logo">
+        <a href="https://www.youtube.com/watch?v=PnKRPGhKbtY">
+          <img src="/images/dragon.svg" alt="" class="logo">
+        </a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-        <img src="/images/black-knight.png" alt="" class="logo">
+        <a href="https://www.youtube.com/watch?v=FsR2-Ok0kv0">
+          <img src="/images/black-knight.png" alt="" class="logo">
+        </a>
           <% if current_user %>
             <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
           <% else %>
