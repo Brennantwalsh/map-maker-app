@@ -19,6 +19,7 @@ class JourneysController < ApplicationController
 
   def show
     @journey = Journey.find(params[:id])
+    @users = User.all
   end
 
   def edit

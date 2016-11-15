@@ -35,27 +35,33 @@
           <%= hidden_field_tag :journey_id, @journey.id %>
           <%= submit_tag "Dry the ink", class: "btn btn-info" %>
         </div>
+    <% end %>
+    <h3 class="journey">Add People to the Journey:</h3>
+    <div class="journey">
+    <%= form_tag "/participations", method: :post do %>
+      <h4><%= label_tag :username %></h4>
+      <h4><%= text_field_tag :username %></h4>
+      <datalist id="username">
+        <% @users.each do |user| %>
+          <option value="<%= user.username %>"></option>
         <% end %>
-        <h3 class="journey">Add People to the Journey:</h3>
-        <div class="journey">
-        <%= form_tag "/participations", method: :post do %>
-          <h4><%= label_tag :username %></h4>
-          <h4><%= text_field_tag :username %></h4>
-          <%= hidden_field_tag :journey_id, @journey.id %>
-          <%= submit_tag "Join the Crew", class: "btn btn-info" %>
-        <% end %>
-        </div>
+      </datalist>
+      <%= hidden_field_tag :journey_id, @journey.id %>
+      <%= submit_tag "Join the Crew", class: "btn btn-info" %>
+    <% end %>
+    </div>
     <% end %>
     <br>
     <% if current_user.id == @journey.dm_id %>
-    <div class="journey">
-      <%= link_to "Edit Journey", "/journeys/#{@journey.id}/edit", method: :get, class: "btn btn-info" %>
-    </div> 
-    <br>
-    <div class="journey">
-      <%= link_to "End Journey", "/journeys/#{@journey.id}", method: :delete, class: "btn btn-danger" %>
-    </div>
-    <br> 
+      <div class="journey">
+        <%= link_to "Edit Journey", "/journeys/#{@journey.id}/edit", method: :get, class: "btn btn-info" %>
+      </div> 
+      <br>
+      <div class="journey">
+        <%= link_to "End Journey", "/journeys/#{@journey.id}", method: :delete, class: "btn btn-danger" %>
+      </div>
+      <br>
+
+    <% end %>
 </div>
-  <% end %>
 <br>

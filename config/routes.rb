@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   put '/placements/:id' => 'placements#update'
 
   post '/participations' => 'participations#create'
+  delete '/participations/:id' => 'participations#destroy'
 
   mount ActionCable.server => '/cable'
 end
