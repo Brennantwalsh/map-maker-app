@@ -19,6 +19,7 @@ div.transparent{
   border-color: black;
   border-style: solid;
   border-radius: 25px;
+  min-height: 300px;
   
 }
 img.thumbnail{
