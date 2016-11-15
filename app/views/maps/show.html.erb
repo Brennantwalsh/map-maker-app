@@ -1,10 +1,10 @@
 <div class="transparent">
   <span><h1 class="Header"><%= @map.name %></h1></span>
   <h3 class= "description"><%=@map.description %></h3>
-  <% if @map.user == current_user.id %>
-    <h3 onclick="create()">Instructions</h3>
+  <% if @map.user.id == current_user.id %>
+    <button class="btn btn-info" onclick="create()">Instructions</button>
   <% else %>
-    <h3 onclick="navigate()">Instructions</h3>
+    <button class="btn btn-info" onclick="navigate()">Instructions</button>
   <% end %>
   <h4>Journey: <%= link_to @map.journey.name, "/journeys/#{@map.journey_id}", method: :get, class: "btn btn-info"   %></h4>
   <% if current_user.id == @map.creator_id %>
