@@ -1,4 +1,3 @@
-
 function mover() {
 var spot = document.getElementById('radialGradient');
 var verticalMoveSpeed = .05
