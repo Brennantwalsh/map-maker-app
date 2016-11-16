@@ -3,17 +3,17 @@ body{
   font-family: Papyrus,fantasy;
 }
 
-.btn{
-  cursor: url("/images/sword.jpg"), auto;
-}
-
 .right-wing{
   padding-left: 30px;
+}
+.heavy-indent{
+  padding-left: 70px;
 }
 .put-right{
   text-align: right;
   padding-right: 30px;
 }
+
 
 
 .small{
