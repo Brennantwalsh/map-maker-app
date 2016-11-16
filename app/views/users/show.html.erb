@@ -1,41 +1,52 @@
 <div class="transparent">
   <canvas id="easter" class="easter" draggable="true"> 
   </canvas>
-<h1 class="Header">Hero Info:</h1>
-<br>
-<h2 class="journey" onclick="hello()"><%= @user.username.titleize %></h2>
-<div class="journey"><%= image_tag @user.avatar.url(:thumb), class: "thumbnail" %></div>
-<div class="journey">
-  <%= form_tag "/users/#{@user.id}", method: :patch, multipart: true do  %>
-      <h3 class="filer"><%= file_field_tag :avatar %></h3>
+  <div class="col-xs-4">
+    
+    <h1 class="Header">Hero Info:</h1>
+    <br>
+    <h2 class="journey" onclick="hello()"><%= @user.username.titleize %></h2>
+    <h2 class="journey"><%= @user.email %></h2>
+    <div class="journey"><%= image_tag @user.avatar.url(:thumb), class: "thumbnail" %></div>  
+    <div class="journey">
+      <%= form_tag "/users/#{@user.id}", method: :patch, multipart: true do  %>
+          <h3 class="filer"><%= file_field_tag :avatar %></h3>
+          <br>
+          <br>
+          <br>
+          <br>
+        <%= submit_tag "Update Avatar!", class: "btn btn-info"%>
+      <% end %>
+    </div>  
+  </div>
+  <div class="col-xs-4">
+    
+    <h1 class="Header">Your Created Journeys:</h1>
+    <ul class="journey">
+    <% @user.journeys.each do |journey| %>
+      <li><%= link_to journey.name, "/journeys/#{journey.id}", method: :get, class: "btn btn-info" %></li>
       <br>
+    <% end %>
+    </ul>
+  </div>
+  <div class="col-xs-4">
+    
+    <h1 class="Header">Your Participated Journeys:</h1>
+    <ul class="journey">
+    <% @user.participated_journeys.each do |journey| %>
+      <li class="btn"><%= link_to journey.name, "/journeys/#{journey.id}", method: :get, class: "btn btn-info" %></li>
       <br>
-      <br>
-    <%= submit_tag "Update Avatar!", class: "btn btn-info"%>
-  <% end %>
-</div>  
-<h2 class="journey"><%= @user.email %></h2>
-<br>
-<h1 class="Header">Your Created Journeys</h1>
-<ul class="journey">
-<% @user.journeys.each do |journey| %>
-  <li><%= link_to journey.name, "/journeys/#{journey.id}", method: :get, class: "btn btn-info" %></li>
-  <br>
-<% end %>
-</ul>
-<h1 class="Header">Your Participated Journeys</h1>
-<ul class="journey">
-<% @user.participated_journeys.each do |journey| %>
-  <li class="btn"><%= link_to journey.name, "/journeys/#{journey.id}", method: :get, class: "btn btn-info" %></li>
-  <br>
-<% end %>
-</ul>
+    <% end %>
+    </ul>
+  </div>
+  <div class="col-xs-12">
+    
+    <h1 class="Header">Start a New Journey</h1>
 
-<h1 class="Header">Start a New Journey</h1>
-
-<%= form_tag '/journeys', method: :post do %>
-  <h4 class="journey"><%= label_tag :name %><%= text_field_tag :name %></h4>
-  <h4 class="journey"><%= label_tag :description %><%= text_field_tag :description %></h4>
-  <h4 class="journey"><%= submit_tag "It began as all journey's do...", class: "btn btn-info" %></h4>
-<% end %>
+    <%= form_tag '/journeys', method: :post do %>
+      <h4 class="journey"><%= label_tag :name %><%= text_field_tag :name %></h4>
+      <h4 class="journey"><%= label_tag :description %><%= text_field_tag :description %></h4>
+      <h4 class="journey"><%= submit_tag "It began as all journey's do...", class: "btn btn-info" %></h4>
+    <% end %>
+  </div>
 </div>

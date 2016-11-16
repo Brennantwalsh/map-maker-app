@@ -7,6 +7,14 @@ body{
   cursor: url("/images/sword.jpg"), auto;
 }
 
+.right-wing{
+  padding-left: 30px;
+}
+.put-right{
+  text-align: right;
+  padding-right: 30px;
+}
+
 
 .small{
   height: 30px;
@@ -19,8 +27,26 @@ div.transparent{
   border-color: black;
   border-style: solid;
   border-radius: 25px;
-  min-height: 300px;
+  min-height: 650px;
   
+}
+
+div.transpose{
+  background: rgba(251, 205, 154, 0.5);
+  border-width: 10px
+  border-color: black;
+  border-style: solid;
+  border-radius: 25px;
+  min-height: 500px;
+  
+}
+
+div.translucent{
+  background: rgba(251, 205, 154, 0.5);
+  border-width: 10px
+  border-color: black;
+  border-style: solid;
+  border-radius: 25px;
 }
 img.thumbnail{
   display: block;

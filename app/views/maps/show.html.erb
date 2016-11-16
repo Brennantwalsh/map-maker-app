@@ -1,14 +1,14 @@
-<div class="transparent">
+<div class="translucent">
   <span><h1 class="Header"><%= @map.name %></h1></span>
-  <h3 class= "description"><%=@map.description %></h3>
-  <% if @map.user.id == current_user.id %>
-    <button class="btn btn-info" onclick="create()">Instructions</button>
-  <% else %>
-    <button class="btn btn-info" onclick="navigate()">Instructions</button>
-  <% end %>
-  <h4>Journey: <%= link_to @map.journey.name, "/journeys/#{@map.journey_id}", method: :get, class: "btn btn-info"   %></h4>
+  <h3 class="description"><%=@map.description %></h3>
+    <% if @map.user.id == current_user.id %>
+      <h4 class="right-wing">Instructions:<button class="btn btn-info" onclick="create()">Click Me!</button></h4>
+    <% else %>
+      <h4 class="right-wing">Instructions:<button class="btn btn-info" onclick="navigate()">Click Me!</button></h4>
+    <% end %>
+    <h4 class="right-wing">Journey: <%=link_to @map.journey.name, "/journeys/#{@map.journey_id}", method: :get, class: "btn btn-info"   %></h4>
   <% if current_user.id == @map.creator_id %>
-    <h4>Edit Map: <%= link_to "Edit", "/maps/#{@map.id}/edit", method: :get, class: "btn btn-info" %></h4>
+    <h4 class="right-wing"><%= link_to "Edit Map", "/maps/#{@map.id}/edit", method: :get, class: "btn btn-info" %> <%= link_to "Delete Map", "/maps/#{@map.id}", method: :delete, class: "btn btn-danger" %></h4>
   <% end %>
 </div>
 <br>
@@ -45,36 +45,37 @@
 <br> 
 <br>  
 
-<div class="transparent">
-<h2 class="journey"> User:<%= current_user.username %> </h2>
-</div>
 <% if @map.user.id == current_user.id %>
-  <%= link_to "Delete Map", "/maps/#{@map.id}", method: :delete, class: "btn btn-danger" %>
-  <br>
+  <div ng-app="app">
+    <div ng-controller="mapsController" ng-init="setup()">
 
-<div ng-app="app">
-  <div ng-controller="mapsController" ng-init="setup()">
+      <div class="translucent">
 
-  <button ng-click="showTiles()" class="btn btn-info">All Tiles</button>
+        <datalist id="tiles">
+            <option ng-repeat="tile in tiles">{{ tile.path }}</option> 
+        </datalist> 
 
-  <datalist id="tiles">
-      <option ng-repeat="tile in tiles">{{ tile.path }}</option> 
-  </datalist> 
-
-  <div class="transparent">
-    <h4 class="journey">Search Tile by Name:</h4>
-    <input type="text" ng-model="tileFilter" list="tiles">
-    <h4 class="journey">Limit Return:</h4>
-    <input type="text" ng-model="limitToThis" id="number">
-  </div>
-    <div ng-if="showBar">
-      <div class="col-md-2" ng-repeat="tile in tiles | filter: { path: tileFilter } | limitTo: limitToThis" ondragover="allowDrop(event)">
-        <img src="/images/{{ tile.path }}.png" draggable="true" class="tiles" id="{{tile.id}}" ondragstart="drag(event)" ondrop="drop(event)">
+        <h4 class="right-wing">Search Tile by Name:
+          <input type="text" ng-model="tileFilter" list="tiles">
+        </h4>
+        <h4 class="right-wing">Limit Return:
+          <input type="text" ng-model="limitToThis" id="number">
+        </h4>
+        <h4 class="right-wing">
+          <button ng-click="showTiles()" class="btn btn-info">Search Tiles</button>
+        </h4>
       </div>
+        <div ng-if="showBar">
+          <div class="col-md-2" ng-repeat="tile in tiles | filter: { path: tileFilter } | limitTo: limitToThis" ondragover="allowDrop(event)">
+            <img src="/images/{{ tile.path }}.png" draggable="true" class="tiles" id="{{tile.id}}" ondragstart="drag(event)" ondrop="drop(event)">
+          </div>
+        </div>
     </div>
   </div>
-</div>
+<% else %>
+    </div>
 <% end %>
+<br>
 <br>
 <br>
 <br>
@@ -82,16 +83,15 @@
   <div ng-app="app">
     <div ng-controller="mapsController" ng-init="setup()">
       <div class="boxes">
-      <h2>Chat With Other Players:</h2>
-        <button ng-click="showMessages()" class="btn btn-info">Show Chat</button>
-        <div id="messages" ng-if="showChat">
-          <%= render @messages %>
-        </div>
-
-        <form ng-if="showChat">
-          <label> Say Something:</label><br>
-          <input id="<%= current_user.id %>" name="<%= @map.id %>" type="text" data-behavior="room_speaker">
-        </form>
+        <h2>Chat With Other Players:</h2>
+          <button ng-click="showMessages()" class="btn btn-info">Show Chat</button>
+            <div id="messages" ng-if="showChat">
+              <%= render @messages %>
+            </div>
+          <form ng-if="showChat">
+            <label> Say Something:</label><br>
+            <input id="<%= current_user.id %>" name="<%= @map.id %>" type="text" data-behavior="room_speaker">
+          </form>
       </div>
     </div>
   </div>
