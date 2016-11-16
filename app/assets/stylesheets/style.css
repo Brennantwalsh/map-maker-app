@@ -120,10 +120,14 @@ svg {
       height: 1140px;
     }
 
+.bold{
+  color: black;
 
+}
 
 .btn-info {
   color: #000;
+  margin-top: 5px;
 }
 
 .alert-success {

@@ -48,8 +48,7 @@
     <h3 class="journey">Maps:</h3>
     <ul class="journey">
       <% @journey.maps.each do |map| %>
-        <li><%= link_to map.name, "/maps/#{map.id}", method: :get, class: "btn btn-info"  %></li>
-        <br>
+        <li class="btn btn-info"><%= link_to map.name, "/maps/#{map.id}", method: :get, class: "bold"  %></li>
       <% end %>
     </ul>
   </div>
