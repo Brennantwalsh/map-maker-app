@@ -75,10 +75,7 @@
 <% else %>
     </div>
 <% end %>
-<br>
-<br>
-<br>
-<br>
+
 <% if @map.user.id != current_user.id %>
   <div ng-app="app">
     <div ng-controller="mapsController" ng-init="setup()">
@@ -100,3 +97,4 @@
       hello();
     </script>
 <% end %>
+<br>
